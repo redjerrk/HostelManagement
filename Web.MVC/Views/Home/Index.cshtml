@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="card-body mt-4">
+    <div class="text-center">
+        <h1 class="display-4">Welcome To Hostel Management System</h1>
+    </div>
+    <div class="card-body"></div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info"><i class="fas fa-hotel"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Hostel</span>
+                        <span class="info-box-number">@ViewBag.TotalHostel</span>
+                        <a href="/Hostel" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fas fa-users"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Staff</span>
+                        <span class="info-box-number">@ViewBag.TotalStaff</span>
+                        <a href="/Staff" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="fas fa-layer-group"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Room Type</span>
+                        <span class="info-box-number">@ViewBag.TotalRoomType</span>
+                        <a href="/RoomType" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-danger"><i class="fas fa-door-open"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Room</span>
+                        <span class="info-box-number">@ViewBag.TotalRoom</span>
+                        <a href="/Room" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-success"><i class="fas fa-user-circle"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Member</span>
+                        <span class="info-box-number">@ViewBag.TotalMember</span>
+                        <a href="/Member" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-danger"><i class="fas fa-money-bill"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Rent Collection</span>
+                        <span class="info-box-text">Total Due: @ViewBag.TotalDue</span>
+                        <a href="/RentCollection" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

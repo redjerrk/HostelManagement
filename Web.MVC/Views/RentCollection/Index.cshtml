@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Web.MVC.Services.RentCollection.VmRentCollection>
+@{
+    ViewData["Title"] = "Rent Collection";
+}
+
+@if (TempData["isSucceed"] != null)
+{
+    <div class="alert alert-success" id="successAlert">@TempData["isSucceed"]</div>
+}
+else if (TempData["isFailed"] != null)
+{
+    <div class="alert alert-danger" id="errorAlert">@TempData["isFailed"]</div>
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Rent Collections</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6 text-right">
+                <a class="btn bg-blue" href="/Fee/RentGenerate">
+                    <i class="fa fa-plus-square"></i>
+                    Generate Rent
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-Text">Member Rent List</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="dataTable table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Member Name</th>
+                            <th>Hostel Name</th>
+                            <th>Phone</th>
+                            <th>Room Number</th>
+                            <th>Rent Per Month</th>
+                            <th>Payment Status</th>
+                            <th>Due Amount</th>
+                            <th>Last Payment Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var rent in Model)
+                        {
+                            <tr>
+                                <td>@rent.MemberName</td>
+                                <td>@rent.HostelName</td>
+                                <td>@rent.MemberPhone</td>
+                                <td>@rent.RoomNumber</td>
+                                <td>@rent.RentPerMonth</td>
+                                <td>@rent.PaymentStatus</td>
+                                <td>@rent.DueAmount</td>
+                                <td>@rent.LastPaymentDate</td>
+                                <td class="action-buttons-td" title="Click To Pay">
+                                    <a class="btn btn-danger" href="/Fee/MakePayment/@rent.FeeId"><i class="fas fa-money-bill-alt"></i> <br/>Click To Pay</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Function to hide the success and error alerts after 2 seconds
+    function hideAlerts() {
+        var successAlert = document.getElementById("successAlert");
+        var errorAlert = document.getElementById("errorAlert");
+
+        if (successAlert) {
+            successAlert.style.display = "none";
+        }
+
+        if (errorAlert) {
+            errorAlert.style.display = "none";
+        }
+    }
+
+    // Call the hideAlerts function after 2 seconds (2000 milliseconds)
+    setTimeout(hideAlerts, 2000);
+</script>

@@ -1,0 +1,67 @@
+﻿@model RoomType
+@{
+    ViewData["Title"] = "Update Hostel";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Update Room Type</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/RoomType">Room Type</a></li>
+                    <li class="breadcrumb-item active">Edit</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Update</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Update">
+                        <div class="row">
+                            <input type="hidden" asp-for="Id" readonly>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="Type">Type</label>
+                                    <input type="text" id="Type" class="form-control" asp-for="Type">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="RentPerMonth">Rent Per Month</label>
+                                    <input type="number" id="RentPerMonth" class="form-control" asp-for="RentPerMonth">
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="Facilities">Facilities</label>
+                                    <textarea id="Facilities" class="form-control" rows="2" asp-for="Facilities"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <a href="/RoomType" class="btn btn-outline-primary">Back</a>
+                                <input type="submit" value="Update" class="btn btn-primary float-right">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</section>

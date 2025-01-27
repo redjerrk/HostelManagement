@@ -1,0 +1,26 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.action-buttons-td a.btn {
+    padding: 5px 10px; /* Adjust the padding values as per your preference */
+}
+
+#DataTables_Table_0_filter, #DataTables_Table_0_paginate {
+    float: right !important;
+}

@@ -1,0 +1,87 @@
+﻿@model Room
+@{
+    ViewData["Title"] = "Update Room";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Update Room</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Room">Room</a></li>
+                    <li class="breadcrumb-item active">Edit</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Update</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Update">
+                        <div class="row">
+                            <input type="hidden" asp-for="Id" readonly>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label>Hostel</label>
+                                    <select asp-for="HostelId" class="form-control">
+                                        <option value="">Select Hostel</option>
+                                        @foreach (var hostel in ViewBag.Hostels)
+                                        {
+                                            <option value="@hostel.Id" selected=@(hostel.Id == Model.HostelId ? true : false)>@hostel.Name</option>
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label>Room Type</label>
+                                    <select asp-for="RoomTypeId" class="form-control">
+                                        <option value="">Select Room Type</option>
+                                        @foreach (var roomType in ViewBag.RoomTypes)
+                                        {
+                                            <option value="@roomType.Id" selected=@(roomType.Id == Model.RoomTypeId ? true : false)>@roomType.Type</option>
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="RoomNumber">Room Number</label>
+                                    <input type="text" id="RoomNumber" class="form-control" asp-for="RoomNumber">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="Capacity">Capacity</label>
+                                    <input type="text" id="Capacity" class="form-control" asp-for="Capacity">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <a href="/Room" class="btn btn-outline-primary">Back</a>
+                                <input type="submit" value="Update" class="btn btn-primary float-right">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</section>

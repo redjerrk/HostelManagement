@@ -1,0 +1,116 @@
+﻿@model Hostel
+@{
+    ViewData["Title"] = "Create Hostel";
+}
+@if (TempData["isSucceed"] != null)
+{
+    <div class="alert alert-success">@TempData["isSucceed"]</div>
+}
+else if (TempData["isFailed"] != null)
+{
+    <div class="alert alert-danger">@TempData["isFailed"]</div>
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Add Hostel</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/Hostel">Hostel</a></li>
+                    <li class="breadcrumb-item active">Add</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Create</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Create">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputName">Hostel Name</label>
+                                    <input type="text" id="inputName" class="form-control" asp-for="Name">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="LicenseNo">License No</label>
+                                    <input type="text" id="LicenseNo" class="form-control" asp-for="LicenseNo">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputOwnerName">Owner Name</label>
+                                    <input type="text" id="inputOwnerName" class="form-control" asp-for="OwnerName">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputOwnerPhoneNumber">Owner Phone Number</label>
+                                    <input type="text" id="inputOwnerPhoneNumber" class="form-control" asp-for="OwnerPhoneNumber">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputOwnerEmail">Owner Email</label>
+                                    <input type="text" id="inputOwnerEmail" class="form-control" asp-for="OwnerEmail">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputOwnerNid">Owner NID</label>
+                                    <input type="text" id="inputOwnerNid" class="form-control" asp-for="OwnerNid">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputOpeningTime">Opening Time</label>
+                                    <input type="text" id="inputOpeningTime" class="form-control timepicker" asp-for="OpeningTime" />
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputClosingTime">Closing Time</label>
+                                    <input type="text" id="inputClosingTime" class="form-control timepicker" asp-for="ClosingTime" />
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputAddress">Hostel Address</label>
+                                    <textarea id="inputAddress" class="form-control" rows="2" asp-for="Address"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="inputOwnerAddress">Owner Address</label>
+                                    <textarea id="inputOwnerAddress" class="form-control" rows="2" asp-for="OwnerAddress"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <a href="/Hostel/Create" class="btn btn-outline-primary">Reset</a>
+                                <input type="submit" value="Add" class="btn btn-primary float-right">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</section>

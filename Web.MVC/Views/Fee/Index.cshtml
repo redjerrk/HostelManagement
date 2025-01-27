@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Web.MVC.Services.FeeRepo.VmFee>
+@{
+    ViewData["Title"] = "Fees List";
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1 class="m-0 text-dark">Fees</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-Text">Fees List</h3>
+            </div>
+            <div class="card-body pb-0">
+                <span id="exportButtons" class="text-right"></span>
+            </div>
+            <div class="card-body">
+                <table id="dataTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var fee in Model)
+                        {
+                            
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+}

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Web.MVC.Services.StaffRepo.VmStaff>
+@{
+    ViewData["Title"] = "Staff List";
+}
+
+@if (TempData["isSucceed"] != null)
+{
+    <div class="alert alert-success" id="successAlert">@TempData["isSucceed"]</div>
+}
+else if (TempData["isFailed"] != null)
+{
+    <div class="alert alert-danger" id="errorAlert">@TempData["isFailed"]</div>
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Staffs</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6 text-right">
+                <a class="btn bg-blue" href="/Staff/Create/">
+                    <i class="fa fa-plus-square"></i>
+                    Add new
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-Text">Existing Staffs</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="dataTable table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Hostel Name</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Position</th>
+                            <th>Salary</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var staff in Model)
+                        {
+                            <tr>
+                                <td>@staff.Name</td>
+                                <td>@staff.HostelName</td>
+                                <td>@staff.Gender</td>
+                                <td>@staff.DateOfBirth</td>
+                                <td>@staff.Address</td>
+                                <td>@staff.Phone</td>
+                                <td>@staff.Email</td>
+                                <td>@staff.Position</td>
+                                <td>@staff.Salary</td>
+                                <td class="action-buttons-td">
+                                    <a class="btn btn-info" href="/Staff/Update/@staff.Id"><i class="far fa-edit"></i></a>
+                                    <a class="btn btn-danger" href="/Staff/Delete/@staff.Id"><i class="fas fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Function to hide the success and error alerts after 2 seconds
+    function hideAlerts() {
+        var successAlert = document.getElementById("successAlert");
+        var errorAlert = document.getElementById("errorAlert");
+
+        if (successAlert) {
+            successAlert.style.display = "none";
+        }
+
+        if (errorAlert) {
+            errorAlert.style.display = "none";
+        }
+    }
+
+    // Call the hideAlerts function after 2 seconds (2000 milliseconds)
+    setTimeout(hideAlerts, 2000);
+</script>
